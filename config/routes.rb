@@ -1,4 +1,19 @@
 OpsDash::Application.routes.draw do
+  
+  get   '/login', :to => 'sessions#new', :as => :login
+  match '/auth/:provider/callback', :to => 'sessions#create'
+  match '/auth/failure', :to => 'sessions#failure'
+  
+  
+  
+  get "sessions/create"
+
+  get "sessions/new"
+
+  get "sessions/crete"
+
+  get "sessions/failure"
+
   resources :tickets
 
 
