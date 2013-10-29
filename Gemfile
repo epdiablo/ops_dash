@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
 gem 'bootstrap-sass'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'devise'
+gem 'oauth2'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
