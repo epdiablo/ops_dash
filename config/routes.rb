@@ -1,5 +1,10 @@
 OpsDash::Application.routes.draw do
   
+  devise_for :users
+
+  resources :users
+
+
   get   '/login', :to => 'sessions#new', :as => :login
   match '/auth/:provider/callback', :to => 'sessions#create'
   match '/auth/failure', :to => 'sessions#failure'
