@@ -1,5 +1,8 @@
-
+<% if user_signed_in? %>
 <% provide(:title, current_user.email) %>
+<% else %>
+<% provide(:title, "Not signed in") %>
+<% end%>
 
     <h1>TESTING THINGS!</h1>
     <p>
