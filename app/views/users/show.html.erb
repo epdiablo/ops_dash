@@ -14,7 +14,15 @@
   <b>Role:</b>
   <%= @user.role %>
 </p>
-
+<div class="span8">
+    <% if @user.tickets.any? %>
+      <h3>Microposts (<%= @user.tickets.count %>)</h3>
+      <ol class="microposts">
+        <%= render @tickets %>
+      </ol>
+      <%= will_paginate @tickets %>
+    <% end %>
+  </div>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
