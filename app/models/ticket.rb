@@ -1,6 +1,3 @@
 class Ticket < ActiveRecord::Base
-  
-  belongs_to :user
-  
-  attr_accessible :description, :email, :issue
+  attr_accessible :description, :issue, :priority, :type, :user_id
 end

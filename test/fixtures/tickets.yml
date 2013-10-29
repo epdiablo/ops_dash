@@ -1,11 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  email: MyString
+  user_id: 1
+  description: MyString
   issue: MyString
-  description: MyText
+  priority: 1
+  type: 
 
 two:
-  email: MyString
+  user_id: 1
+  description: MyString
   issue: MyString
-  description: MyText
+  priority: 1
+  type: 

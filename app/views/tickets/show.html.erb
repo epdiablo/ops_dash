@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Email:</b>
-  <%= @ticket.email %>
+  <b>User:</b>
+  <%= @ticket.user_id %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @ticket.description %>
 </p>
 
 <p>
@@ -11,8 +16,13 @@
 </p>
 
 <p>
-  <b>Description:</b>
-  <%= @ticket.description %>
+  <b>Priority:</b>
+  <%= @ticket.priority %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @ticket.type %>
 </p>
 
 

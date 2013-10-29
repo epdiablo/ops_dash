@@ -1,5 +1,8 @@
 OpsDash::Application.routes.draw do
   
+  resources :tickets
+
+
   root :to => 'pages#home'
   get "pages/home"
 
@@ -21,9 +24,6 @@ OpsDash::Application.routes.draw do
   get "sessions/crete"
 
   get "sessions/failure"
-
-  resources :tickets
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
