@@ -14,6 +14,7 @@ class TicketsController < ApplicationController
   # GET /tickets/1.json
   def show
     @ticket = Ticket.find(params[:id])
+    @updates = @ticket.updates.paginate(page: params[:page])
 
     respond_to do |format|
       format.html # show.html.erb

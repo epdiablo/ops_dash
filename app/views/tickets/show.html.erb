@@ -25,6 +25,16 @@
   <%= @ticket.type %>
 </p>
 
+<div class="span8">
+    <% if @ticket.updates.any? %>
+      <h3>updates(<%= @ticket.updates.count %>)</h3>
+      <ol class="microposts">
+        <%= render @updates %>
+      </ol>
+      <%= will_paginate @updates %>
+    <% end %>
+  </div>
+
 
 <%= link_to 'Edit', edit_ticket_path(@ticket) %> |
 <%= link_to 'Back', tickets_path %>
