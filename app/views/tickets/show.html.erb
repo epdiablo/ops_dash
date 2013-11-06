@@ -21,9 +21,15 @@
 </p>
 
 <p>
-  <b>Type:</b>
-  <%= @ticket.type %>
+  <b>Category:</b>
+  <%= @ticket.category %>
 </p>
+
+<p>
+  <b>Status:</b>
+  <%= @ticket.status %>
+</p>
+
 
 <div class="span8">
     <% if @ticket.updates.any? %>

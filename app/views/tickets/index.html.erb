@@ -6,7 +6,8 @@
     <th>User</th>
     <th>Issue</th>
     <th>Priority</th>
-    <th>Type</th>
+    <th>Category</th>
+    <th>Status</th>
     <th></th>
     <th></th>
     <th></th>
@@ -19,7 +20,8 @@
     <td><%= ticket.description %></td>
     <td><%= ticket.issue %></td>
     <td><%= ticket.priority %></td>
-    <td><%= ticket.type %></td>
+    <td><%= ticket.category %></td>
+    <td><%= ticket.status %></td>
     <td><%= link_to 'Show', ticket %></td>
     <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
     <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>

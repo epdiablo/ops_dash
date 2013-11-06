@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
+    <%= f.collection_select :user_id, User.all, :id, :name, prompt: true %>
   </div>
   <div class="field">
     <%= f.label :description %><br />
@@ -28,8 +28,12 @@
     <%= f.number_field :priority %>
   </div>
   <div class="field">
-    <%= f.label :type %><br />
-    <%= f.text_field :type %>
+    <%= f.label :category %><br />
+    <%= f.text_field :category %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.text_field :status%>
   </div>
   <div class="actions">
     <%= f.submit %>
