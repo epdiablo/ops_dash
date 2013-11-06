@@ -18,7 +18,7 @@
   	<td><%= ticket.id%></td>
     <td><%= User.find(ticket.user_id).name %></td>
     <td><%= ticket.description %></td>
-    <td><%= ticket.issue %></td>
+    <td><%= ticket.issue.content[0,20] %></td>
     <td><%= ticket.priority %></td>
     <td><%= ticket.category %></td>
     <td><%= ticket.status %></td>

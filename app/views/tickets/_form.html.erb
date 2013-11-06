@@ -13,27 +13,28 @@
 
   <div class="field">
     <%= f.label :user_id %><br />
-    <%= f.collection_select :user_id, User.all, :id, :name, prompt: true %>
+    <%= f.collection_select :user_id, User.all, :id, :name, :selected => current_user.name %>
   </div>
+ 
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_field :description %>
   </div>
   <div class="field">
     <%= f.label :issue %><br />
-    <%= f.text_field :issue %>
+    <%= f.text_area :issue %>
   </div>
   <div class="field">
     <%= f.label :priority %><br />
-    <%= f.number_field :priority %>
+    <%= f.select :priority, ([1, 2, 3].map {|i| [i,i] }.reverse) %>
   </div>
   <div class="field">
     <%= f.label :category %><br />
-    <%= f.text_field :category %>
+    <%= f.select :category, (["Trouble", "To Do" ].map {|i| [i,i] }), :selected => "Trouble" %>
   </div>
   <div class="field">
     <%= f.label :status %><br />
-    <%= f.text_field :status%>
+    <%= f.select :category, (["Open", "Closed", "Pending" ].map {|i| [i,i] }), :selected => "Open" %>
   </div>
   <div class="actions">
     <%= f.submit %>
