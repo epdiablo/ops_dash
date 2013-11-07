@@ -2,7 +2,7 @@
 
 <table class="table table-striped">
   <tr>
-    <th>Ticket</th>
+    <th><%= link_to "Ticket", :sort => "id"%> </th>
     <th>User</th>
     <th>Issue</th>
     <th>Priority</th>
@@ -15,7 +15,7 @@
 
 <% @tickets.each do |ticket| %>
   <tr>
-  	<td><%= ticket.id%></td>
+  	<td><%= ticket.id %></td>
     <td><%= User.find(ticket.user_id).name %></td>
     <td><%= ticket.description %></td>
     <td><%= ticket.issue.content[0,20] %></td>

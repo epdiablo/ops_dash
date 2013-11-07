@@ -2,7 +2,8 @@ class TicketsController < ApplicationController
   # GET /tickets
   # GET /tickets.json
   def index
-    @tickets = Ticket.all
+    
+    @tickets = Ticket.order(params[:sort])
 
     respond_to do |format|
       format.html # index.html.erb
