@@ -41,7 +41,11 @@
     <% end %>
   </div>
 
+  <%= link_to "Update", new_update_path(:ticket_id => @ticket.id) %>
+
+  <br>
+
 
 <%= link_to 'Edit', edit_ticket_path(@ticket) %> |
-<%= link_to 'Back', tickets_path %>
+<%= link_to 'Back', tickets_path %> |
 <%= link_to 'Destroy', @ticket, method: :delete, data: { confirm: 'Are you sure?' } %>

@@ -4,6 +4,7 @@ class UpdatesController < ApplicationController
   def index
     @updates = Update.all
 
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @updates }
@@ -26,6 +27,9 @@ class UpdatesController < ApplicationController
   def new
     @update = Update.new
 
+
+        
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @update }
@@ -41,9 +45,12 @@ class UpdatesController < ApplicationController
   # POST /updates.json
   def create
     @update = Update.new(params[:update])
+    
 
     respond_to do |format|
       if @update.save
+
+
         format.html { redirect_to @update, notice: 'Update was successfully created.' }
         format.json { render json: @update, status: :created, location: @update }
       else

@@ -1,10 +1,15 @@
 OpsDash::Application.routes.draw do
   
-  resources :updates
+resources :updates 
+
+  resources :tickets, shallow: true do
+    resources :updates
 
 
-  resources :tickets
+  end
 
+  match 'updates/new/:ticket_id' => 'update#new', :via => :get
+  get "updates/new"
 
   root :to => 'pages#home'
   get "pages/home"
