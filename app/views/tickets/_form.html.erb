@@ -34,7 +34,7 @@
   </div>
   <div class="field">
     <%= f.label :status %><br />
-    <%= f.select :category, (["Open", "Closed", "Pending" ].map {|i| [i,i] }), :selected => "Open" %>
+    <%= f.select :status, (["Open", "Closed", "Pending" ].map {|i| [i,i] }), :selected => "Open" %>
   </div>
   <div class="actions">
     <%= f.submit %>
