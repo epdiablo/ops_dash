@@ -85,4 +85,9 @@ class TicketsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def mytickets
+    @tickets = Ticket.order(params[:sort])
+  end
+  
 end

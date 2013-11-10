@@ -8,11 +8,14 @@ resources :updates
 
   end
 
+  
+
   match 'updates/new/:ticket_id' => 'update#new', :via => :get
   get "updates/new"
 
   root :to => 'pages#home'
   get "pages/home"
+  match 'mytickets' => 'tickets#mytickets'
 
   devise_for :users
 

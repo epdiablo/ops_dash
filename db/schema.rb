@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131108203648) do
+ActiveRecord::Schema.define(:version => 20131110224433) do
+
+  create_table "authentications", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "token"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "sessions", :force => true do |t|
     t.integer  "user_id"
@@ -28,10 +37,10 @@ ActiveRecord::Schema.define(:version => 20131108203648) do
     t.string   "issue"
     t.integer  "priority"
     t.string   "category"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
     t.string   "status"
-    t.string   "owner"
+    t.integer  "owner",       :limit => 255
   end
 
   create_table "updates", :force => true do |t|

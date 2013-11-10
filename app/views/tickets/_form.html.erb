@@ -37,7 +37,7 @@
     <%= f.select :status, (["Open", "Closed", "Pending" ].map {|i| [i,i] }), :selected => "Open" %>
   </div>
   <div class="field">
-    <%= f.label :owner %><br />
+    <%= f.label :owner, "Assign to" %><br />
     <%= f.collection_select :owner, User.all, :id, :name, :selected => User.find_by_name("Ryan Rogers").name %>
   <div class="actions">
     <%= f.submit %>
