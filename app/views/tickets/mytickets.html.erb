@@ -1,0 +1,67 @@
+<h1>Assigned:</h1>
+
+<table class="table table-striped">
+  <tr>
+    <th><%= link_to "Ticket", :sort => "id"%> </th>
+    <th>User</th>
+    <th>Issue</th>
+    <th>Priority</th>
+    <th>Category</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tickets.each do |ticket| %>
+	<% if ticket.owner == current_user.id %>
+  <tr>
+  	<td><%= ticket.id %></td>
+    <td><%= User.find(ticket.user_id).name %></td>
+    <td><%= ticket.description %></td>
+    <td><%= ticket.issue %></td>
+    <td><%= ticket.priority %></td>
+    <td><%= ticket.category %></td>
+    <td><%= ticket.status %></td>
+    <td><%= link_to 'Show', ticket %></td>
+    <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+    <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+  <% else %>
+  <%end%>
+<% end %>
+</table>
+
+<h1>Created:</h1>
+
+<table class="table table-striped">
+  <tr>
+    <th><%= link_to "Ticket", :sort => "id"%> </th>
+    <th>User</th>
+    <th>Issue</th>
+    <th>Priority</th>
+    <th>Category</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tickets.each do |ticket| %>
+	<% if ticket.user_id == current_user.id %>
+  <tr>
+  	<td><%= ticket.id %></td>
+    <td><%= User.find(ticket.user_id).name %></td>
+    <td><%= ticket.description %></td>
+    <td><%= ticket.issue %></td>
+    <td><%= ticket.priority %></td>
+    <td><%= ticket.category %></td>
+    <td><%= ticket.status %></td>
+    <td><%= link_to 'Show', ticket %></td>
+    <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+    <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+  <% else %>
+  <%end%>
+<% end %>
+</table>
