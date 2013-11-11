@@ -18,5 +18,10 @@ class TicketMailer < ActionMailer::Base
 	  mail :to => sendto, :subject => "New update to ticket #{ticket.id}"
 	  
 	end
+	
+	def p1text(ticket)
+	  mail :to => "5126650018@tmomail.net", :subject => "NEW P1 TICKET!"
+	  
+	end
 
 end

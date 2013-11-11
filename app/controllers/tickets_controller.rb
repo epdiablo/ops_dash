@@ -51,6 +51,9 @@ class TicketsController < ApplicationController
       if @ticket.save
         TicketMailer.ticket_creation(@ticket).deliver
         TicketMailer.ticket_thanks(@ticket).deliver
+        if @ticket.priority == 1
+          TicketMailer.p1text(@ticket).deliver
+        end
 
         format.html { redirect_to @ticket, notice: 'Ticket was successfully created.' }
         format.json { render json: @ticket, status: :created, location: @ticket }
