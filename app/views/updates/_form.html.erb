@@ -25,6 +25,9 @@
     <%= f.label :category %><br />
     <%= f.select :category, (["Update", "Note" ].map {|i| [i,i] }), :selected => "Update" %>
   </div>
+  <div class="field">
+    <%= f.label :is_closer, "Close ticket?" %><br />
+    <%= f.check_box :is_closer%> 
   
   <div class="actions">
     <%= f.submit %>

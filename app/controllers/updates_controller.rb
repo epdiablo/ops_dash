@@ -1,6 +1,8 @@
 class UpdatesController < ApplicationController
   # GET /updates
   # GET /updates.json
+helper_method :closetheticket
+
   def index
     @updates = Update.all
 
@@ -49,6 +51,9 @@ class UpdatesController < ApplicationController
 
     respond_to do |format|
       if @update.save
+        if @update.is_closer == true
+          closetheticket(@update.ticket_id)
+        end
 
         updateemailer(@update)
         format.html { redirect_to Ticket.find_by_id(@update.ticket_id), notice: 'Update was successfully created.' }
@@ -94,6 +99,11 @@ class UpdatesController < ApplicationController
     assigned = User.find_by_id(t.owner)
     TicketMailer.update_notify(creator, assigned, t, User.find_by_id(update.user_id), update.body).deliver
     
+  end
+  def closetheticket(tid)
+    ticket = Ticket.find_by_id(tid)
+    ticket.status = "Closed"
+    ticket.save!
   end
   
 end
