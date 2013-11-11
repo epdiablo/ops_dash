@@ -18,13 +18,13 @@ class TicketsController < ApplicationController
   # GET /tickets/1.json
   def show
     @ticket = Ticket.find(params[:id])
-    @updates = @ticket.updates.paginate(page: params[:page])
+    @updates = @ticket.updates.sort {|a,b| b.created_at <=> a.created_at }
 
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @ticket }
     end
-  end
+  end 
 
   # GET /tickets/new
   # GET /tickets/new.json

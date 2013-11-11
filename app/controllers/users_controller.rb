@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
+  helper_method :lastupdated
   def index
     @users = User.all
 
@@ -84,7 +85,15 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+  def lastupdated(t)
+    update = Update.find_all_by_ticket_id(t.id)
+    if update.length != 0
+    return update.last.created_at
+    else
+      return t.created_at
+    end
+    
+  end
   
   
   
