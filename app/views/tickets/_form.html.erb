@@ -14,7 +14,7 @@
 	<div class="col-md-12">
   <div class="field">
     <%= f.label :user_id, "Created By" %><br />
-    <%= f.collection_select :user_id, User.all, :id, :name, :selected => current_user.name %>
+    <%= f.collection_select :user_id, User.all, :id, :name, {:selected => current_user.id} %>
   </div>
  
   <div class="field">
@@ -39,7 +39,7 @@
   </div>
   <div class="field">
     <%= f.label :owner, "Assign to" %><br />
-    <%= f.collection_select :owner, User.all, :id, :name, :selected => User.find_by_name("Ryan Rogers").name %>
+    <%= f.collection_select :owner, User.all, :id, :name, {:selected => User.find_by_name("Ryan Rogers").id} %>
   <div class="actions">
     <%= f.submit %>
   </div>

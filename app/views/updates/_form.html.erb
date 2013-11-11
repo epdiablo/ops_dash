@@ -19,11 +19,11 @@
   </div>
   <div class="field">
     <%= f.label :body %><br />
-    <%= f.text_field :body, :value => params[:ticket_id] %>
+    <%= f.text_area :body %>
   </div>
   <div class="field">
     <%= f.label :category %><br />
-    <%= f.text_field :category %>
+    <%= f.select :category, (["Update", "Note" ].map {|i| [i,i] }), :selected => "Update" %>
   </div>
   
   <div class="actions">
