@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<h3><%= @ticket.description%></h3> || Created by: <%= User.find_by_id(@ticket.user_id).name %> <%= time_ago_in_words(@ticket.created_at)%> ago<br /><br />
+<h4>Issue:<br /><%= @ticket.issue %></h4><br />
 
 
-<%= link_to "Update", new_update_path(:ticket_id => @ticket.id) %>
+<%= link_to "Update", new_update_path(:ticket_id => @ticket.id), class: "btn btn-medium btn-default" %>
 <div class="container">
 	
 				<table class="table table-striped">
