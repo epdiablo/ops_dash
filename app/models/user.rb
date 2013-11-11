@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
          
-  validates :email, :format => { :with => /.*[@][s][o][n][g][z][a][.][c][o][m]/i}
+  
          
   has_many :sessions, :dependent => :delete_all
   has_many :tickets
