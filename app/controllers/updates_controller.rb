@@ -26,7 +26,7 @@ class UpdatesController < ApplicationController
   # GET /updates/new.json
   def new
     @update = Update.new
-
+    
 
         
 
@@ -50,7 +50,7 @@ class UpdatesController < ApplicationController
     respond_to do |format|
       if @update.save
 
-
+        updateemailer(@update)
         format.html { redirect_to @update, notice: 'Update was successfully created.' }
         format.json { render json: @update, status: :created, location: @update }
       else
@@ -87,4 +87,13 @@ class UpdatesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def updateemailer(update)
+    t = Ticket.find_by_id(update.ticket_id)
+    creator = User.find_by_id(t.user_id)
+    assigned = User.find_by_id(t.owner)
+    TicketMailer.update_notify(creator, assigned, t).deliver
+    
+  end
+  
 end

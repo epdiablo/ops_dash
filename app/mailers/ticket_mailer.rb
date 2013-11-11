@@ -11,5 +11,12 @@ class TicketMailer < ActionMailer::Base
 		@ticket = ticket
 		mail :to => User.find_by_id(ticket.user_id).email, :subject => "Ticket Created. Ticket Number #{ticket.id}"
 	end
+	def update_notify(creator, assigned, ticket)
+	  @creator = creator
+	  @assigned = assigned
+	  sendto = [creator.email, assigned.email]
+	  mail :to => sendto, :subject => "New update to ticket #{ticket.id}"
+	  
+	end
 
 end
