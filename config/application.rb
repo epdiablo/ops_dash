@@ -54,7 +54,7 @@ module OpsDash
     config.active_record.whitelist_attributes = true
 
     # Enable the asset pipeline
-    config.assets.enabled = false
+    config.assets.enabled = true
     config.assets.initialize_on_precompile = true
 
     # Version of your assets, change this if you want to expire all your assets
