@@ -92,7 +92,7 @@ class UpdatesController < ApplicationController
     t = Ticket.find_by_id(update.ticket_id)
     creator = User.find_by_id(t.user_id)
     assigned = User.find_by_id(t.owner)
-    TicketMailer.update_notify(creator, assigned, t).deliver
+    TicketMailer.update_notify(creator, assigned, t, User.find_by_id(update.user_id), update.body).deliver
     
   end
   
