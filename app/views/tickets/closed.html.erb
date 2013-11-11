@@ -1,0 +1,33 @@
+<%= link_to 'Open Tickets', 'tickets'%>
+
+<h1>Listing tickets</h1> 
+
+<table class="table table-striped">
+  <tr>
+    <th>Ticket </th>
+    
+    <th>Description</th>
+    <th>Priority</th>
+    <th>Assigned To</th>
+    <th>Last Updated</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tickets.each do |ticket| %>
+  <tr>
+  	<td><%= ticket.id %></td>
+    
+    <td><%= ticket.description %></td>
+   
+    <td><%= ticket.priority %></td>
+    <td><%= User.find(ticket.owner).name %></td>
+    <td><%= time_ago_in_words(lastupdated(ticket)) %> ago</td>
+    <td><%= ticket.status %></td>
+    <td><%= link_to 'Show', ticket %></td>
+    
+  </tr>
+<% end %>
+</table>

@@ -1,13 +1,16 @@
-<h1>Listing tickets</h1>
+<%= link_to 'Closed Tickets', 'closed'%>
+
+<h1>Listing tickets</h1> 
 
 <table class="table table-striped">
   <tr>
-    <th><%= link_to "Ticket", :sort => "id"%> </th>
-    <th>User</th>
-    <th>Issue</th>
+    <th>Ticket </th>
+    
+    <th>Description</th>
     <th>Priority</th>
-    <th>Category</th>
+    <th>Assigned To</th>
     <th>Last Updated</th>
+    <th>Status</th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,15 +19,15 @@
 <% @tickets.each do |ticket| %>
   <tr>
   	<td><%= ticket.id %></td>
-    <td><%= User.find(ticket.user_id).name %></td>
+    
     <td><%= ticket.description %></td>
-    <td><%= ticket.issue %></td>
+   
     <td><%= ticket.priority %></td>
+    <td><%= User.find(ticket.owner).name %></td>
     <td><%= time_ago_in_words(lastupdated(ticket)) %> ago</td>
     <td><%= ticket.status %></td>
     <td><%= link_to 'Show', ticket %></td>
-    <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
-    <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    
   </tr>
 <% end %>
 </table>

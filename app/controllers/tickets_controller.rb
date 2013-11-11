@@ -5,7 +5,8 @@ class TicketsController < ApplicationController
   # GET /tickets.json
   def index
     
-    @tickets = Ticket.order(params[:sort])
+    @tickets = Ticket.find_all_by_status("Open").sort_by &:priority
+    
 
     respond_to do |format|
       format.html # index.html.erb
@@ -102,4 +103,17 @@ class TicketsController < ApplicationController
     
   end
   
+  def self.lastsort(t)
+    return 1
+  end
+    def closed
+    
+    @tickets = Ticket.find_all_by_status("Closed").sort_by &:priority
+    
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @tickets }
+    end
+  end
 end

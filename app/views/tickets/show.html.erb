@@ -1,75 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>User:</b>
-  <%= @ticket.user_id %>
-</p>
 
-<p>
-  <b>Description:</b>
-  <%= @ticket.description %>
-</p>
 
-<p>
-  <b>Issue:</b>
-  <%= @ticket.issue %>
-</p>
-
-<p>
-  <b>Priority:</b>
-  <%= @ticket.priority %>
-</p>
-
-<p>
-  <b>Category:</b>
-  <%= @ticket.category %>
-</p>
-
-<p>
-  <b>Status:</b>
-  <%= @ticket.status %>
-</p>
-
+<%= link_to "Update", new_update_path(:ticket_id => @ticket.id) %>
 <div class="container">
-<div class="col-md-6">
-    <% if @ticket.updates.any? %>
-      <h3>updates(<%= @ticket.updates.count %>)</h3>
-      <ol class="microposts">
-        <%= render @updates %>
-      </ol>
-      <%= will_paginate @updates %>
-    <% end %>
-  </div>
-</div>
-  <%= link_to "Update", new_update_path(:ticket_id => @ticket.id) %>
-
-  <br>
-
-
-<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
-<%= link_to 'Back', tickets_path %> |
-<%= link_to 'Destroy', @ticket, method: :delete, data: { confirm: 'Are you sure?' } %>
-
-
-
-
-<div class="container">
-  
-  <div class="row clearfix">
-    <div class="col-md-8 column">
-      <p><b>Description:</b> <%= @ticket.description %></p><br>
-      <p><b>Created By:</b> <%= User.find(@ticket.user_id).name %> <%= time_ago_in_words(@ticket.created_at) %> ago</p>
-
-    </div>
-    <div class="col-md-4 column">
-    <p><b>Status:</b> <%= @ticket.status %></p>
-
-    </div>
-  </div>
-  <div class="row clearfix">
-    <div class="col-md-12 column">
-    <p> <%= @ticket.issue %> </p>
+	
+				<table class="table table-striped">
+  <tr>
+    <th>Updated By</th>
     
-    </div>
-  </div>
+    <th><center>Update</center></th>
+    <th>Updated at</th>
+
+	
+		<% if @ticket.updates.any? %>
+		<% @updates.each do |update|%>
+		
+
+
+
+  <tr>
+  	<td><%= User.find_by_id(update.user_id).name %></td>
+    
+    <td><%= update.body %></td>
+   
+    <td><%= update.created_at %></td>
+    
+    
+  </tr>
+<% end %>
+		<% end %>
+	
+</table>
+			
+	
+		
+	
 </div>
+

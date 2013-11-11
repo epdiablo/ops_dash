@@ -1,7 +1,11 @@
 
 <% provide(:title, "Home") %>
 
-    <h1>TESTING THINGS!</h1>
-    <p>
-    
-    </p>
+   <p>
+   <h3> Welcome, <%= current_user.name %> </h3><br />
+   </p>
+   <p>
+   	
+   	<%= link_to 'View your tickets', current_user %>
+   	
+   </p>

@@ -16,6 +16,7 @@ resources :updates
   root :to => 'pages#home'
   get "pages/home"
   match 'mytickets' => 'tickets#mytickets'
+  match 'closed' => 'tickets#closed'
 
   devise_for :users
 

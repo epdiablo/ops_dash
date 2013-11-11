@@ -11,6 +11,10 @@
     </div>
   <% end %>
   <div class="field">
+  	<%= f.hidden_field :user_id, :value => current_user.id%>
+  	
+  </div>
+  <div class="field">
   <%= f.hidden_field :ticket_id, :value => params[:ticket_id] %>
   </div>
   <div class="field">

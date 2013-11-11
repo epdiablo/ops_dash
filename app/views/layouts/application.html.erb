@@ -14,9 +14,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= link_to "Log out", destroy_user_session_path, :method => :delete %>
-<%= yield %>
-
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<%= render 'layouts/header'%>
+		</div>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<%= yield %>
+		</div>
+	</div>
+</div>
 </body>
 </html>
