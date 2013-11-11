@@ -51,7 +51,7 @@ class UpdatesController < ApplicationController
       if @update.save
 
         updateemailer(@update)
-        format.html { redirect_to @update, notice: 'Update was successfully created.' }
+        format.html { redirect_to Ticket.find_by_id(@update.ticket_id), notice: 'Update was successfully created.' }
         format.json { render json: @update, status: :created, location: @update }
       else
         format.html { render action: "new" }

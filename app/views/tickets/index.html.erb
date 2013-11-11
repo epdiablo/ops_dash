@@ -7,7 +7,7 @@
     <th>Issue</th>
     <th>Priority</th>
     <th>Category</th>
-    <th>Status</th>
+    <th>Last Updated</th>
     <th></th>
     <th></th>
     <th></th>
@@ -20,7 +20,7 @@
     <td><%= ticket.description %></td>
     <td><%= ticket.issue %></td>
     <td><%= ticket.priority %></td>
-    <td><%= ticket.category %></td>
+    <td><%= time_ago_in_words(lastupdated(ticket)) %> ago</td>
     <td><%= ticket.status %></td>
     <td><%= link_to 'Show', ticket %></td>
     <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>

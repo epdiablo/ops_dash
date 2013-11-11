@@ -1,4 +1,6 @@
 class TicketsController < ApplicationController
+  
+  helper_method :lastupdated
   # GET /tickets
   # GET /tickets.json
   def index
@@ -88,6 +90,16 @@ class TicketsController < ApplicationController
   
   def mytickets
     @tickets = Ticket.order(params[:sort])
+  end
+  
+  def lastupdated(t)
+    update = Update.find_all_by_ticket_id(t)
+    if update.length != 0
+    return update.last.created_at
+    else
+      return t.created_at
+    end
+    
   end
   
 end
