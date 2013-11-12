@@ -16,6 +16,7 @@ class TicketMailer < ActionMailer::Base
 	  @assigned = assigned
 	  @updater = updater
 	  @updatebody = updatebody
+	  @ticket = ticket
 	  sendto = [creator.email, assigned.email]
 	  mail :to => sendto, :subject => "New update to ticket #{ticket.id}"
 	  
