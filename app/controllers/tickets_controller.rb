@@ -1,6 +1,6 @@
 class TicketsController < ApplicationController
   
-  helper_method :lastupdated
+  helper_method :lastupdated, :lasttouch
   # GET /tickets
   # GET /tickets.json
   def index
@@ -104,6 +104,16 @@ class TicketsController < ApplicationController
       return t.created_at
     end
     
+  end
+
+  def lasttouch(t)
+    update = Update.find_all_by_ticket_id(t)
+    if update.length != 0
+      return User.find_by_id(update.last.user_id).name
+      
+    else
+      return User.find_by_id(t.user_id).name
+    end
   end
   
   def self.lastsort(t)

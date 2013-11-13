@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131111222123) do
+ActiveRecord::Schema.define(:version => 20131113165508) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(:version => 20131111222123) do
 
   create_table "tickets", :force => true do |t|
     t.integer  "user_id"
-    t.string   "description"
+    t.text     "description", :limit => 255
     t.string   "issue"
     t.integer  "priority"
     t.string   "category"
