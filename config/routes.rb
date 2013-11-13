@@ -2,6 +2,8 @@ OpsDash::Application.routes.draw do
   
 resources :updates 
 
+resources :watchers
+
   resources :tickets, shallow: true do
     resources :updates
 
@@ -17,6 +19,7 @@ resources :updates
   get "pages/home"
   match 'mytickets' => 'tickets#mytickets'
   match 'closed' => 'tickets#closed'
+
 
   devise_for :users
 
