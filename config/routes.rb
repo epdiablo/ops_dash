@@ -1,5 +1,8 @@
 OpsDash::Application.routes.draw do
   
+  resources :campaigns
+
+
 resources :updates 
 
   resources :tickets, shallow: true do

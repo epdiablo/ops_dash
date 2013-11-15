@@ -1,0 +1,61 @@
+<h1>Listing campaigns</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Advertiser</th>
+    <th>Agency</th>
+    <th>Team sold</th>
+    <th>Revenue</th>
+    <th>Startdate</th>
+    <th>Enddate</th>
+    <th>Keydates</th>
+    <th>Thirdparty</th>
+    <th>Targeting</th>
+    <th>Web</th>
+    <th>Mobile</th>
+    <th>Tablet</th>
+    <th>Video</th>
+    <th>Io</th>
+    <th>Assets</th>
+    <th>Sales notes</th>
+    <th>Ops notes</th>
+    <th>Paused</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @campaigns.each do |campaign| %>
+<% if campaignlive(campaign) == true %>
+  <tr>
+    <td><%= campaign.name %></td>
+    <td><%= campaign.advertiser %></td>
+    <td><%= campaign.agency %></td>
+    <td><%= campaign.team_sold %></td>
+    <td><%= campaign.revenue %></td>
+    <td><%= campaign.startdate %></td>
+    <td><%= campaign.enddate %></td>
+    <td><%= campaign.keydates %></td>
+    <td><%= campaign.thirdparty %></td>
+    <td><%= campaign.targeting %></td>
+    <td><%= campaign.web %></td>
+    <td><%= campaign.mobile %></td>
+    <td><%= campaign.tablet %></td>
+    <td><%= campaign.video %></td>
+    <td><%= campaign.io %></td>
+    <td><%= campaign.assets %></td>
+    <td><%= campaign.sales_notes %></td>
+    <td><%= campaign.ops_notes %></td>
+    <td><%= campaign.paused %></td>
+    <td><%= link_to 'Show', campaign %></td>
+    <td><%= link_to 'Edit', edit_campaign_path(campaign) %></td>
+    <td><%= link_to 'Destroy', campaign, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+  <% end %>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Campaign', new_campaign_path %>

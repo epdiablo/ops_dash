@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  advertiser: MyString
+  agency: MyString
+  team_sold: MyString
+  revenue: MyString
+  startdate: MyString
+  enddate: MyString
+  keydates: MyText
+  thirdparty: MyString
+  targeting: MyString
+  web: false
+  mobile: false
+  tablet: false
+  video: false
+  io: false
+  assets: false
+  sales_notes: MyText
+  ops_notes: MyText
+  paused: false
+
+two:
+  name: MyString
+  advertiser: MyString
+  agency: MyString
+  team_sold: MyString
+  revenue: MyString
+  startdate: MyString
+  enddate: MyString
+  keydates: MyText
+  thirdparty: MyString
+  targeting: MyString
+  web: false
+  mobile: false
+  tablet: false
+  video: false
+  io: false
+  assets: false
+  sales_notes: MyText
+  ops_notes: MyText
+  paused: false

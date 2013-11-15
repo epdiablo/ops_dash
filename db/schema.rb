@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131113165508) do
+ActiveRecord::Schema.define(:version => 20131115162844) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -20,6 +20,31 @@ ActiveRecord::Schema.define(:version => 20131113165508) do
     t.string   "token"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "campaigns", :force => true do |t|
+    t.string   "name"
+    t.string   "advertiser"
+    t.string   "agency"
+    t.string   "team_sold"
+    t.string   "revenue"
+    t.string   "startdate"
+    t.string   "enddate"
+    t.text     "keydates"
+    t.string   "thirdparty"
+    t.string   "targeting"
+    t.boolean  "web"
+    t.boolean  "mobile"
+    t.boolean  "tablet"
+    t.boolean  "video"
+    t.boolean  "io"
+    t.boolean  "assets"
+    t.text     "sales_notes"
+    t.text     "ops_notes"
+    t.boolean  "paused"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "state"
   end
 
   create_table "sessions", :force => true do |t|
@@ -41,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20131113165508) do
     t.datetime "updated_at",                 :null => false
     t.string   "status"
     t.integer  "owner",       :limit => 255
+    t.string   "watchemails"
   end
 
   create_table "updates", :force => true do |t|
@@ -72,5 +98,12 @@ ActiveRecord::Schema.define(:version => 20131113165508) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "watchers", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "ticket_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

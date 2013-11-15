@@ -1,0 +1,19 @@
+.campaign-live tbody tr {
+  background-color: #dff0d8
+}
+
+.campaign-ready tbody tr {
+  background-color: #dff0d8
+}
+
+.campaign-stalled tbody tr {
+  background-color: #dff0d8
+}
+
+.campaign-pending tbody tr {
+  background-color: #dff0d8
+}
+
+.campaign-paused tbody tr {
+  background-color: #dff0d8
+}
