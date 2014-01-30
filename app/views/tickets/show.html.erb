@@ -9,7 +9,7 @@
 	
 				<table class="table table-striped">
   <tr>
-    <th>Updated By</th>
+    <th>Updated By3</th>
     
     <th><center>Update</center></th>
     <th>Updated at</th>
@@ -24,7 +24,7 @@
   <tr>
   	<td><%= User.find_by_id(update.user_id).name %></td>
     
-    <td><%= update.body %></td>
+    <td><p><%= simple_format(update.body.to_s.gsub(/\n/, '<br />')) %></p></td>
    
     <td><%= update.created_at %></td>
     
