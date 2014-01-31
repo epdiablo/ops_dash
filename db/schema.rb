@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131115162844) do
+ActiveRecord::Schema.define(:version => 20140131174617) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -26,25 +26,23 @@ ActiveRecord::Schema.define(:version => 20131115162844) do
     t.string   "name"
     t.string   "advertiser"
     t.string   "agency"
-    t.string   "team_sold"
+    t.string   "teamsold"
     t.string   "revenue"
     t.string   "startdate"
     t.string   "enddate"
-    t.text     "keydates"
     t.string   "thirdparty"
-    t.string   "targeting"
+    t.text     "thirdpartylogin"
+    t.text     "theoremtracking"
+    t.text     "geo"
     t.boolean  "web"
     t.boolean  "mobile"
     t.boolean  "tablet"
     t.boolean  "video"
     t.boolean  "io"
     t.boolean  "assets"
-    t.text     "sales_notes"
-    t.text     "ops_notes"
-    t.boolean  "paused"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.string   "state"
+    t.text     "notes"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "sessions", :force => true do |t|

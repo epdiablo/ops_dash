@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  advertiser: MyString
+  agency: MyString
+  teamsold: MyString
+  revenue: MyString
+  startdate: MyString
+  enddate: MyString
+  thirdparty: MyString
+  thirdpartylogin: MyText
+  theoremtracking: MyText
+  geo: MyText
+  web: false
+  mobile: false
+  tablet: false
+  video: false
+  io: false
+  assets: false
+  notes: MyText
+
+two:
+  name: MyString
+  advertiser: MyString
+  agency: MyString
+  teamsold: MyString
+  revenue: MyString
+  startdate: MyString
+  enddate: MyString
+  thirdparty: MyString
+  thirdpartylogin: MyText
+  theoremtracking: MyText
+  geo: MyText
+  web: false
+  mobile: false
+  tablet: false
+  video: false
+  io: false
+  assets: false
+  notes: MyText

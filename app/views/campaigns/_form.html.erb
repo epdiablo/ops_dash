@@ -1,0 +1,89 @@
+<%= form_for(@campaign) do |f| %>
+  <% if @campaign.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@campaign.errors.count, "error") %> prohibited this campaign from being saved:</h2>
+
+      <ul>
+      <% @campaign.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :advertiser %><br />
+    <%= f.text_field :advertiser %>
+  </div>
+  <div class="field">
+    <%= f.label :agency %><br />
+    <%= f.text_field :agency %>
+  </div>
+  <div class="field">
+    <%= f.label :teamsold %><br />
+    <%= f.text_field :teamsold %>
+  </div>
+  <div class="field">
+    <%= f.label :revenue %><br />
+    <%= f.text_field :revenue %>
+  </div>
+  <div class="field">
+    <%= f.label :startdate %><br />
+    <%= f.text_field :startdate %>
+  </div>
+  <div class="field">
+    <%= f.label :enddate %><br />
+    <%= f.text_field :enddate %>
+  </div>
+  <div class="field">
+    <%= f.label :thirdparty %><br />
+    <%= f.text_field :thirdparty %>
+  </div>
+  <div class="field">
+    <%= f.label :thirdpartylogin %><br />
+    <%= f.text_area :thirdpartylogin %>
+  </div>
+  <div class="field">
+    <%= f.label :theoremtracking %><br />
+    <%= f.text_area :theoremtracking %>
+  </div>
+  <div class="field">
+    <%= f.label :geo %><br />
+    <%= f.text_area :geo %>
+  </div>
+  <div class="field">
+    <%= f.label :web %><br />
+    <%= f.check_box :web %>
+  </div>
+  <div class="field">
+    <%= f.label :mobile %><br />
+    <%= f.check_box :mobile %>
+  </div>
+  <div class="field">
+    <%= f.label :tablet %><br />
+    <%= f.check_box :tablet %>
+  </div>
+  <div class="field">
+    <%= f.label :video %><br />
+    <%= f.check_box :video %>
+  </div>
+  <div class="field">
+    <%= f.label :io %><br />
+    <%= f.check_box :io %>
+  </div>
+  <div class="field">
+    <%= f.label :assets %><br />
+    <%= f.check_box :assets %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br />
+    <%= f.text_area :notes %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
