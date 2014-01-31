@@ -8,6 +8,7 @@ gem 'omniauth-google-oauth2'
 gem 'devise'
 gem 'oauth2'
 gem 'will_paginate'
+gem 'googlecharts'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
