@@ -11,12 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
+  <div class="form-group">
+    <%= f.label :name %>
     <%= f.text_field :name %>
-  </div>
+  </div><br />
   <div class="field">
-    <%= f.label :advertiser %><br />
+    <%= f.label :advertiser %>
     <%= f.text_field :advertiser %>
   </div>
   <div class="field">
@@ -33,27 +33,31 @@
   </div>
   <div class="field">
     <%= f.label :startdate %><br />
-    <%= f.text_field :startdate %>
+    <%= f.text_field :startdate, :placeholder => "dd/mm/yyyy" %>
   </div>
   <div class="field">
     <%= f.label :enddate %><br />
-    <%= f.text_field :enddate %>
+    <%= f.text_field :enddate, :placeholder => "dd/mm/yyyy" %>
+  </div>
+  <div class="field">
+    <%= f.label :keydates %><br />
+    <%= f.text_area :keydates, :rows => 3 %>
   </div>
   <div class="field">
     <%= f.label :thirdparty %><br />
-    <%= f.text_field :thirdparty %>
+    <%= f.text_field :thirdparty, :size => "50" %>
   </div>
   <div class="field">
     <%= f.label :thirdpartylogin %><br />
-    <%= f.text_area :thirdpartylogin %>
+    <%= f.text_area :thirdpartylogin, :rows => 3 %>
   </div>
   <div class="field">
     <%= f.label :theoremtracking %><br />
-    <%= f.text_area :theoremtracking %>
+    <%= f.text_area :theoremtracking, :rows => 3 %>
   </div>
   <div class="field">
     <%= f.label :geo %><br />
-    <%= f.text_area :geo %>
+    <%= f.text_area :geo, :rows => 3 %>
   </div>
   <div class="field">
     <%= f.label :web %><br />
@@ -81,7 +85,19 @@
   </div>
   <div class="field">
     <%= f.label :notes %><br />
-    <%= f.text_area :notes %>
+    <%= f.text_area :notes, :rows => 3 %>
+  </div>
+  <div class="field">
+    <%= f.label :manager %>
+    <%= f.collection_select :manager, User.all, :id, :name, {:selected => current_user.id} %>
+  </div>
+  <div class="field">
+    <%= f.label :trafficker %>
+    <%= f.collection_select :trafficker, User.all, :id, :name, {:selected => User.find_by_name("Ryan Rogers").id} %>
+  </div>
+  <div class="field">
+    <%= f.label :status %>
+    <%= f.select :status, (["Pending", "Ready" ].map {|i| [i,i] }), :selected => "Pending" %>
   </div>
   <div class="actions">
     <%= f.submit %>
