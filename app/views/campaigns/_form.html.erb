@@ -18,87 +18,87 @@
   <div class="field">
     <%= f.label :advertiser %>
     <%= f.text_field :advertiser %>
-  </div>
+  </div><br />
   <div class="field">
-    <%= f.label :agency %><br />
+    <%= f.label :agency %>
     <%= f.text_field :agency %>
-  </div>
+  </div><br />
   <div class="field">
-    <%= f.label :teamsold %><br />
+    <%= f.label :teamsold %>
     <%= f.text_field :teamsold %>
-  </div>
+  </div><br />
   <div class="field">
-    <%= f.label :revenue %><br />
+    <%= f.label :revenue %>
     <%= f.text_field :revenue %>
-  </div>
+  </div><br />
   <div class="field">
-    <%= f.label :startdate %><br />
+    <%= f.label :startdate %>
     <%= f.text_field :startdate, :placeholder => "mm/dd/yyyy" %>
-  </div>
+  </div><br />
   <div class="field">
-    <%= f.label :enddate %><br />
+    <%= f.label :enddate %>
     <%= f.text_field :enddate, :placeholder => "mm/dd/yyyy" %>
-  </div>
+  </div><br />
   <div class="field">
-    <%= f.label :keydates %><br />
+    <%= f.label :keydates %>
     <%= f.text_area :keydates, :rows => 3 %>
-  </div>
+  </div><br />
   <div class="field">
-    <%= f.label :thirdparty %><br />
+    <%= f.label :thirdparty %>
     <%= f.text_field :thirdparty, :size => "50" %>
-  </div>
+  </div><br />
   <div class="field">
-    <%= f.label :thirdpartylogin %><br />
+    <%= f.label :thirdpartylogin %>
     <%= f.text_area :thirdpartylogin, :rows => 3 %>
-  </div>
+  </div><br />
   <div class="field">
-    <%= f.label :theoremtracking %><br />
+    <%= f.label :theoremtracking %>
     <%= f.text_area :theoremtracking, :rows => 3 %>
-  </div>
+  </div><br />
   <div class="field">
-    <%= f.label :geo %><br />
+    <%= f.label :geo %>
     <%= f.text_area :geo, :rows => 3 %>
-  </div>
+  </div><br />
   <div class="field">
-    <%= f.label :web %><br />
+    <%= f.label :web %>
     <%= f.check_box :web %>
-  </div>
+  </div><br />
   <div class="field">
-    <%= f.label :mobile %><br />
+    <%= f.label :mobile %>
     <%= f.check_box :mobile %>
-  </div>
+  </div><br />
   <div class="field">
-    <%= f.label :tablet %><br />
+    <%= f.label :tablet %>
     <%= f.check_box :tablet %>
-  </div>
+  </div><br />
   <div class="field">
-    <%= f.label :video %><br />
+    <%= f.label :video %>
     <%= f.check_box :video %>
-  </div>
+  </div><br />
   <div class="field">
-    <%= f.label :io %><br />
+    <%= f.label :io %>
     <%= f.check_box :io %>
-  </div>
+  </div><br />
   <div class="field">
-    <%= f.label :assets %><br />
+    <%= f.label :assets %>
     <%= f.check_box :assets %>
-  </div>
+  </div><br />
   <div class="field">
-    <%= f.label :notes %><br />
+    <%= f.label :notes %>
     <%= f.text_area :notes, :rows => 3 %>
-  </div>
+  </div><br />
   <div class="field">
     <%= f.label :manager %>
     <%= f.collection_select :manager, @amusers, :id, :name %>
-  </div>
+  </div><br />
   <div class="field">
     <%= f.label :trafficker %>
     <%= f.collection_select :trafficker, @aousers, :id, :name %>
-  </div>
+  </div><br />
   <div class="field">
     <%= f.label :status %>
     <%= f.select :status, (["Pending", "Ready" ].map {|i| [i,i] }), :selected => @campaign.status %>
-  </div>
+  </div><br />
   <div class="actions">
     <%= f.submit %>
   </div>
