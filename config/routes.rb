@@ -20,7 +20,8 @@ resources :updates
   get "pages/home"
   match 'mytickets' => 'tickets#mytickets'
   match 'closed' => 'tickets#closed'
-  match 'mycampaigns' => 'campaigns#mycampaigns'
+  match 'mycampaigns' => 'campaigns#mycampaigns', as: :my_campaigns
+  match 'closedcampaigns' => 'campaigns#closed', as: :closed_campaigns
 
   devise_for :users
 

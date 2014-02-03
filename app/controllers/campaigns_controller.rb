@@ -1,16 +1,28 @@
 class CampaignsController < ApplicationController
   # GET /campaigns
   # GET /campaigns.json
-  helper_method :getAO
+  helper_method :getAO, :trselect
   def index
     
     @campaigns = Campaign.all
-    @camparray = []
+    @camplivearray = []
+    @campuparray = []
+    @campoverarray =[]
     @campaigns.each do |i|
-      if i.startdate.to_time.strftime("%m/%d/%Y").to_date < Time.now.to_date
-        @camparray << i.id
+      if i.startdate.to_time.strftime("%m/%d/%Y").to_date <= Time.now.to_date && i.enddate.to_time.strftime("%m/%d/%Y").to_date > Time.now.to_date
+        @camplivearray << i.id
+      elsif i.startdate.to_time.strftime("%m/%d/%Y").to_date > Time.now.to_date 
+        @campuparray << i.id
+      else
+        @campoverarray << i.id
       end
     end
+    @camplive = Campaign.where(:id => @camplivearray)
+    @campup = Campaign.where(:id => @campuparray)
+    @campover = Campaign.where(:id => @campoverarray)
+    @temparray = [@camplive, @campup]
+    
+
 
 
     
@@ -108,12 +120,50 @@ class CampaignsController < ApplicationController
     else
       @campaigns = Campaign.all
     end
+    @camplivearray = []
+    @campuparray = []
+    @campaigns.each do |i|
+      if i.startdate.to_time.strftime("%m/%d/%Y").to_date <= Time.now.to_date && i.enddate.to_time.strftime("%m/%d/%Y").to_date > Time.now.to_date
+        @camplivearray << i.id
+      elsif i.startdate.to_time.strftime("%m/%d/%Y").to_date > Time.now.to_date
+        @campuparray << i.id
+      end
+    end
+    @camplive = Campaign.where(:id => @camplivearray)
+    @campup = Campaign.where(:id => @campuparray)
+    @temparray = [@camplive, @campup]
 
+  end
+  def closed
+    @campaigns = Campaign.all
+    @camplivearray = []
+    @campuparray = []
+    @campoverarray = []
+    @campaigns.each do |i|
+      if i.startdate.to_time.strftime("%m/%d/%Y").to_date <= Time.now.to_date && i.enddate.to_time.strftime("%m/%d/%Y").to_date > Time.now.to_date
+        @camplivearray << i.id
+      elsif i.startdate.to_time.strftime("%m/%d/%Y").to_date > Time.now.to_date 
+        @campuparray << i.id
+      else
+        @campoverarray << i.id
+      end
+    end
+    @camplive = Campaign.where(:id => @camplivearray)
+    @campup = Campaign.where(:id => @campuparray)
+    @campover = Campaign.where(:id => @campoverarray)
+    @temparray = [@camplive, @campup]
   end
 
   def getAO
     @users = User.find_by_id(1)
     return @users
+  end
+  def trselct(a,b)
+    if a == "Pending" && b = "up"
+      return '<tr class="error">'
+    elsif a == "Ready" && b = "up"
+      return '<tr class="success">'
+    end
   end
 
 end

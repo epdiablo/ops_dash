@@ -33,11 +33,11 @@
   </div>
   <div class="field">
     <%= f.label :startdate %><br />
-    <%= f.text_field :startdate, :placeholder => "dd/mm/yyyy" %>
+    <%= f.text_field :startdate, :placeholder => "mm/dd/yyyy" %>
   </div>
   <div class="field">
     <%= f.label :enddate %><br />
-    <%= f.text_field :enddate, :placeholder => "dd/mm/yyyy" %>
+    <%= f.text_field :enddate, :placeholder => "mm/dd/yyyy" %>
   </div>
   <div class="field">
     <%= f.label :keydates %><br />
@@ -97,7 +97,7 @@
   </div>
   <div class="field">
     <%= f.label :status %>
-    <%= f.select :status, (["Pending", "Ready" ].map {|i| [i,i] }), :selected => "Pending" %>
+    <%= f.select :status, (["Pending", "Ready" ].map {|i| [i,i] }), :selected => @campaign.status %>
   </div>
   <div class="actions">
     <%= f.submit %>
