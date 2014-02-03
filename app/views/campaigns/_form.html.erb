@@ -99,6 +99,9 @@
     <%= f.label :status %>
     <%= f.select :status, (["Pending", "Ready" ].map {|i| [i,i] }), :selected => @campaign.status %>
   </div><br />
+  <div class ="field">
+    <%= f.label :db %>
+    <%= f.text_field :db %>
   <div class="actions">
     <%= f.submit %>
   </div>

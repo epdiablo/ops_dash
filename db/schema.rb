@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140131221219) do
+ActiveRecord::Schema.define(:version => 20140203214856) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20140131221219) do
     t.text     "trafficker"
     t.string   "manager"
     t.text     "keydates"
+    t.string   "db"
   end
 
   create_table "sessions", :force => true do |t|
