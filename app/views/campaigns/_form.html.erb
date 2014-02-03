@@ -24,7 +24,7 @@
     <%= f.text_field :agency %>
   </div><br />
   <div class="field">
-    <%= f.label :teamsold %>
+    <%= f.label :teamsold, "Team Sold" %>
     <%= f.text_field :teamsold %>
   </div><br />
   <div class="field">
@@ -32,27 +32,27 @@
     <%= f.text_field :revenue %>
   </div><br />
   <div class="field">
-    <%= f.label :startdate %>
+    <%= f.label :startdate, "Start Date" %>
     <%= f.text_field :startdate, :placeholder => "mm/dd/yyyy" %>
   </div><br />
   <div class="field">
-    <%= f.label :enddate %>
+    <%= f.label :enddate, "End Date" %>
     <%= f.text_field :enddate, :placeholder => "mm/dd/yyyy" %>
   </div><br />
   <div class="field">
-    <%= f.label :keydates %>
+    <%= f.label :keydates, "Key Dates" %>
     <%= f.text_area :keydates, :rows => 3 %>
   </div><br />
   <div class="field">
-    <%= f.label :thirdparty %>
+    <%= f.label :thirdparty, "Third Party" %>
     <%= f.text_field :thirdparty, :size => "50" %>
   </div><br />
   <div class="field">
-    <%= f.label :thirdpartylogin %>
+    <%= f.label :thirdpartylogin, "Third Party Logins" %>
     <%= f.text_area :thirdpartylogin, :rows => 3 %>
   </div><br />
   <div class="field">
-    <%= f.label :theoremtracking %>
+    <%= f.label :theoremtracking, "Theorem Tracking" %>
     <%= f.text_area :theoremtracking, :rows => 3 %>
   </div><br />
   <div class="field">
@@ -76,7 +76,7 @@
     <%= f.check_box :video %>
   </div><br />
   <div class="field">
-    <%= f.label :io %>
+    <%= f.label :io, "IO" %>
     <%= f.check_box :io %>
   </div><br />
   <div class="field">
