@@ -87,7 +87,7 @@
     
     <th>Io</th>
     <th>Assets</th>
-    
+    <th>DB</th>
     <th></th>
     <th></th>
     
@@ -123,6 +123,10 @@
     <% else %>
         <i class="icon-ok"></i>
         <%  end %></td>
+        <td><%= link_to campaign.db , :target => "_blank" do %>
+            <i class="icon-file"></i>
+            <%end%>
+            </td>
     
     <td><%= link_to 'Show', campaign %></td>
     <td><%= link_to 'Edit', edit_campaign_path(campaign) %></td>
