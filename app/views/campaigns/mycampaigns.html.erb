@@ -1,0 +1,131 @@
+
+<h1>Upcoming Campaigns</h1>
+
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    
+    <th>Agency</th>
+    
+    
+    <th>Startdate</th>
+    <th>Enddate</th>
+    <th>Keydates</th>
+    
+    
+    <th>Io</th>
+    <th>Assets</th>
+    
+    <th></th>
+    <th></th>
+    
+  </tr>
+
+<% @campup.each do |campaign| %>
+    
+    <% if campaign.status == "Ready" %>
+    <tr class = "info">
+    <% elsif campaign.status  == "Pending" %>
+    <tr class = "warning" >
+    <%else %>   
+    <tr>
+    <% end %>
+   
+  
+    <td><%= campaign.name %></td>
+    
+    <td><%= campaign.agency %></td>
+    
+    <td><%= campaign.startdate %></td>
+    <td><%= campaign.enddate %></td>
+    <td><%= campaign.keydates %></td>
+    
+    <td>
+    <% if campaign.io = "false" %>
+        <i class="icon-remove"></i>
+    <% else %>
+        <i class="icon-ok"></i>
+        <%  end %>
+    </td>
+
+    <td><% if campaign.assets = "false" %>
+        <i class="icon-remove"></i>
+    <% else %>
+        <i class="icon-ok"></i>
+        <%  end %></td>
+    
+    <td><%= link_to 'Show', campaign %></td>
+    <td><%= link_to 'Edit', edit_campaign_path(campaign) %></td>
+    
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
+<h1>Live Campaigns</h1>
+
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    
+    <th>Agency</th>
+    
+    
+    <th>Startdate</th>
+    <th>Enddate</th>
+    <th>Keydates</th>
+    
+    
+    <th>Io</th>
+    <th>Assets</th>
+    
+    <th></th>
+    <th></th>
+    
+  </tr>
+
+<% @camplive.each do |campaign| %>
+    
+    <% if campaign.status == "Ready" %>
+    <tr class = "success">
+    <% elsif campaign.status  == "Pending" %>
+    <tr class = "error" >
+    <%else %>   
+    <tr>
+    <% end %>
+    <td><%= campaign.name %></td>
+    
+    <td><%= campaign.agency %></td>
+    
+    <td><%= campaign.startdate %></td>
+    <td><%= campaign.enddate %></td>
+    <td><%= campaign.keydates %></td>
+    
+    <td>
+    <% if campaign.io == "false" %>
+        <i class="icon-remove"></i>
+    <% else %>
+        <i class="icon-ok"></i>
+        <%  end %>
+    </td>
+
+    <td><% if campaign.assets == "false" %>
+        <i class="icon-remove"></i>
+    <% else %>
+        <i class="icon-ok"></i>
+        <%  end %></td>
+    
+    <td><%= link_to 'Show', campaign %></td>
+    <td><%= link_to 'Edit', edit_campaign_path(campaign) %></td>
+    
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Campaign', new_campaign_path %>

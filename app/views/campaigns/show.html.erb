@@ -1,0 +1,96 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @campaign.name %>
+</p>
+
+<p>
+  <b>Advertiser:</b>
+  <%= @campaign.advertiser %>
+</p>
+
+<p>
+  <b>Agency:</b>
+  <%= @campaign.agency %>
+</p>
+
+<p>
+  <b>Teamsold:</b>
+  <%= @campaign.teamsold %>
+</p>
+
+<p>
+  <b>Revenue:</b>
+  <%= @campaign.revenue %>
+</p>
+
+<p>
+  <b>Startdate:</b>
+  <%= @campaign.startdate %>
+</p>
+
+<p>
+  <b>Enddate:</b>
+  <%= @campaign.enddate %>
+</p>
+
+<p>
+  <b>Thirdparty:</b>
+  <%= @campaign.thirdparty %>
+</p>
+
+<p>
+  <b>Thirdpartylogin:</b>
+  <%= @campaign.thirdpartylogin %>
+</p>
+
+<p>
+  <b>Theoremtracking:</b>
+  <%= @campaign.theoremtracking %>
+</p>
+
+<p>
+  <b>Geo:</b>
+  <%= @campaign.geo %>
+</p>
+
+<p>
+  <b>Web:</b>
+  <%= @campaign.web %>
+</p>
+
+<p>
+  <b>Mobile:</b>
+  <%= @campaign.mobile %>
+</p>
+
+<p>
+  <b>Tablet:</b>
+  <%= @campaign.tablet %>
+</p>
+
+<p>
+  <b>Video:</b>
+  <%= @campaign.video %>
+</p>
+
+<p>
+  <b>Io:</b>
+  <%= @campaign.io %>
+</p>
+
+<p>
+  <b>Assets:</b>
+  <%= @campaign.assets %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @campaign.notes %>
+</p>
+
+
+<%= link_to 'Edit', edit_campaign_path(@campaign) %> |
+<%= link_to 'Back', campaigns_path %>
+<%= link_to 'Destroy', @campaign, method: :delete, data: { confirm: 'Are you sure?' } %>

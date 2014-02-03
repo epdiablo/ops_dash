@@ -1,0 +1,105 @@
+<%= form_for(@campaign) do |f| %>
+  <% if @campaign.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@campaign.errors.count, "error") %> prohibited this campaign from being saved:</h2>
+
+      <ul>
+      <% @campaign.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div><br />
+  <div class="field">
+    <%= f.label :advertiser %>
+    <%= f.text_field :advertiser %>
+  </div><br />
+  <div class="field">
+    <%= f.label :agency %>
+    <%= f.text_field :agency %>
+  </div><br />
+  <div class="field">
+    <%= f.label :teamsold %>
+    <%= f.text_field :teamsold %>
+  </div><br />
+  <div class="field">
+    <%= f.label :revenue %>
+    <%= f.text_field :revenue %>
+  </div><br />
+  <div class="field">
+    <%= f.label :startdate %>
+    <%= f.text_field :startdate, :placeholder => "mm/dd/yyyy" %>
+  </div><br />
+  <div class="field">
+    <%= f.label :enddate %>
+    <%= f.text_field :enddate, :placeholder => "mm/dd/yyyy" %>
+  </div><br />
+  <div class="field">
+    <%= f.label :keydates %>
+    <%= f.text_area :keydates, :rows => 3 %>
+  </div><br />
+  <div class="field">
+    <%= f.label :thirdparty %>
+    <%= f.text_field :thirdparty, :size => "50" %>
+  </div><br />
+  <div class="field">
+    <%= f.label :thirdpartylogin %>
+    <%= f.text_area :thirdpartylogin, :rows => 3 %>
+  </div><br />
+  <div class="field">
+    <%= f.label :theoremtracking %>
+    <%= f.text_area :theoremtracking, :rows => 3 %>
+  </div><br />
+  <div class="field">
+    <%= f.label :geo %>
+    <%= f.text_area :geo, :rows => 3 %>
+  </div><br />
+  <div class="field">
+    <%= f.label :web %>
+    <%= f.check_box :web %>
+  </div><br />
+  <div class="field">
+    <%= f.label :mobile %>
+    <%= f.check_box :mobile %>
+  </div><br />
+  <div class="field">
+    <%= f.label :tablet %>
+    <%= f.check_box :tablet %>
+  </div><br />
+  <div class="field">
+    <%= f.label :video %>
+    <%= f.check_box :video %>
+  </div><br />
+  <div class="field">
+    <%= f.label :io %>
+    <%= f.check_box :io %>
+  </div><br />
+  <div class="field">
+    <%= f.label :assets %>
+    <%= f.check_box :assets %>
+  </div><br />
+  <div class="field">
+    <%= f.label :notes %>
+    <%= f.text_area :notes, :rows => 3 %>
+  </div><br />
+  <div class="field">
+    <%= f.label :manager %>
+    <%= f.collection_select :manager, @amusers, :id, :name %>
+  </div><br />
+  <div class="field">
+    <%= f.label :trafficker %>
+    <%= f.collection_select :trafficker, @aousers, :id, :name %>
+  </div><br />
+  <div class="field">
+    <%= f.label :status %>
+    <%= f.select :status, (["Pending", "Ready" ].map {|i| [i,i] }), :selected => @campaign.status %>
+  </div><br />
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

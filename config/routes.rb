@@ -1,5 +1,8 @@
 OpsDash::Application.routes.draw do
   
+  resources :campaigns
+
+
 resources :updates 
 
   resources :tickets, shallow: true do
@@ -17,6 +20,8 @@ resources :updates
   get "pages/home"
   match 'mytickets' => 'tickets#mytickets'
   match 'closed' => 'tickets#closed'
+  match 'mycampaigns' => 'campaigns#mycampaigns', as: :my_campaigns
+  match 'closedcampaigns' => 'campaigns#closed', as: :closed_campaigns
 
   devise_for :users
 

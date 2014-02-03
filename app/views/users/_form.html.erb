@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :role %><br />
-    <%= f.text_field :role %>
+    <%= f.select :role, (["AM", "AO", "Sales", "Admin"].map {|i| [i,i] }), :selected => "AM" %>
   </div>
   <div class="actions">
     <%= f.submit %>

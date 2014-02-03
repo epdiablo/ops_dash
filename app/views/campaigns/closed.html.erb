@@ -1,0 +1,58 @@
+<h1>Past Campaigns</h1>
+
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    
+    <th>Agency</th>
+    
+    
+    <th>Startdate</th>
+    <th>Enddate</th>
+    <th>Keydates</th>
+    
+    
+    <th>Io</th>
+    <th>Assets</th>
+    
+    <th></th>
+    <th></th>
+    
+  </tr>
+
+<% @campover.each do |campaign| %>
+    
+      
+    <tr>
+   
+   
+  
+    <td><%= campaign.name %></td>
+    
+    <td><%= campaign.agency %></td>
+    
+    <td><%= campaign.startdate %></td>
+    <td><%= campaign.enddate %></td>
+    <td><%= campaign.keydates %></td>
+    
+    <td>
+    <% if campaign.io == "false" %>
+        <i class="icon-remove"></i>
+    <% else %>
+        <i class="icon-ok"></i>
+        <%  end %>
+    </td>
+
+    <td><% if campaign.assets == "false" %>
+        <i class="icon-remove"></i>
+    <% else %>
+        <i class="icon-ok"></i>
+        <%  end %></td>
+    
+    <td><%= link_to 'Show', campaign %></td>
+    <td><%= link_to 'Edit', edit_campaign_path(campaign) %></td>
+    
+  </tr>
+<% end %>
+</table>
