@@ -1,6 +1,7 @@
 class CampaignsController < ApplicationController
   # GET /campaigns
   # GET /campaigns.json
+  helper_method :getAO
   def index
     @campaigns = Campaign.all
 
@@ -25,6 +26,8 @@ class CampaignsController < ApplicationController
   # GET /campaigns/new.json
   def new
     @campaign = Campaign.new
+    @aousers = User.where(:role => "AO")
+    @amusers = User.where(:role => "AM")
 
     respond_to do |format|
       format.html # new.html.erb
@@ -80,4 +83,10 @@ class CampaignsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def getAO
+    @users = User.find_by_id(1)
+    return @users
+  end
+
 end
