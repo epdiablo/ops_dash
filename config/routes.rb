@@ -20,6 +20,7 @@ resources :updates
   get "pages/home"
   match 'mytickets' => 'tickets#mytickets'
   match 'closed' => 'tickets#closed'
+  match 'mycampaigns' => 'campaigns#mycampaigns'
 
   devise_for :users
 

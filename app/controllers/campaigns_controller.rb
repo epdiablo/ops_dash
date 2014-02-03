@@ -3,7 +3,20 @@ class CampaignsController < ApplicationController
   # GET /campaigns.json
   helper_method :getAO
   def index
+    
     @campaigns = Campaign.all
+    @camparray = []
+    @campaigns.each do |i|
+      if i.startdate.to_time.strftime("%m/%d/%Y").to_date < Time.now.to_date
+        @camparray << i.id
+      end
+    end
+
+
+    
+
+
+    
 
     respond_to do |format|
       format.html # index.html.erb
@@ -38,6 +51,8 @@ class CampaignsController < ApplicationController
   # GET /campaigns/1/edit
   def edit
     @campaign = Campaign.find(params[:id])
+    @aousers = User.where(:role => "AO")
+    @amusers = User.where(:role => "AM")
   end
 
   # POST /campaigns
@@ -82,6 +97,18 @@ class CampaignsController < ApplicationController
       format.html { redirect_to campaigns_url }
       format.json { head :no_content }
     end
+  end
+
+  def mycampaigns
+
+    if current_user.role = "AO"
+      @campaigns = Campaign.where(:trafficker => current_user.id)
+    elsif current_user.role = "AM"
+      @campaigns = Campaign.where(:manager => current_user.id)
+    else
+      @campaigns = Campaign.all
+    end
+
   end
 
   def getAO
