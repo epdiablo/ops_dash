@@ -9,9 +9,9 @@ class CampaignsController < ApplicationController
     @campuparray = []
     @campoverarray =[]
     @campaigns.each do |i|
-      if i.startdate.to_time.strftime("%m/%d/%Y").to_date <= Time.now.to_date && i.enddate.to_time.strftime("%m/%d/%Y").to_date > Time.now.to_date
+      if Date.strptime(i.startdate, "%m/%d/%Y").to_date <= Time.now.to_date && Date.strptime(i.enddate, "%m/%d/%Y").to_date > Time.now.to_date
         @camplivearray << i.id
-      elsif i.startdate.to_time.strftime("%m/%d/%Y").to_date > Time.now.to_date 
+      elsif Date.strptime(i.startdate, "%m/%d/%Y").to_date > Time.now.to_date 
         @campuparray << i.id
       else
         @campoverarray << i.id
