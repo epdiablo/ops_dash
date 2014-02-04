@@ -159,9 +159,9 @@ class CampaignsController < ApplicationController
     return @users
   end
   def trselct(a,b)
-    if a == "Pending" && b = "up"
+    if a == "Pending" && b == "up"
       return '<tr class="error">'
-    elsif a == "Ready" && b = "up"
+    elsif a == "Ready" && b == "up"
       return '<tr class="success">'
     end
   end
