@@ -33,11 +33,11 @@
   </div><br />
   <div class="field">
     <%= f.label :startdate, "Start Date" %>
-    <%= f.text_field :startdate, :placeholder => "mm/dd/yyyy" %>
+    <%= f.date_select :startdate, :order => [:day, :month, :year] %>
   </div><br />
   <div class="field">
     <%= f.label :enddate, "End Date" %>
-    <%= f.text_field :enddate, :placeholder => "mm/dd/yyyy" %>
+    <%= f.date_select :enddate, :order => [:day, :month, :year] %>
   </div><br />
   <div class="field">
     <%= f.label :keydates, "Key Dates" %>

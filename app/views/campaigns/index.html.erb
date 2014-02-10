@@ -4,18 +4,18 @@
 
 <table class="table table-striped">
   <tr>
-    <th>Name</th>
+    <th><%= link_to "Name", :sort => "name" %></th>
     
-    <th>Agency</th>
+    <th><%= link_to "Agency", :sort => "agency" %></th>
     
     
-    <th>Startdate</th>
-    <th>Enddate</th>
+    <th><%= link_to "Start Date", :sort => "startdate" %></th>
+    <th><%= link_to "End Date", :sort => "enddate" %></th>
     <th>Keydates</th>
     
     
-    <th>Io</th>
-    <th>Assets</th>
+    <th><%= link_to "IO", :sort => "io" %></th>
+    <th><%= link_to "Assets", :sort => "assets" %></th>
     <th>DB</th>
     
     <th></th>
@@ -38,8 +38,8 @@
     
     <td><%= campaign.agency %></td>
     
-    <td><%= campaign.startdate %></td>
-    <td><%= campaign.enddate %></td>
+    <td><%= campaign.startdate.strftime("%m/%d/%Y") %></td>
+    <td><%= campaign.enddate.strftime("%m/%d/%Y") %></td>
     <td><%= campaign.keydates %></td>
     
     <td>
@@ -75,18 +75,18 @@
 
 <table class="table table-striped">
   <tr>
-    <th>Name</th>
+    <th><%= link_to "Name", :sort2 => "name" %></th>
     
-    <th>Agency</th>
+    <th><%= link_to "Agency", :sort2 => "agency" %></th>
     
     
-    <th>Startdate</th>
-    <th>Enddate</th>
+    <th><%= link_to "Start Date", :sort2 => "startdate" %></th>
+    <th><%= link_to "End Date", :sort2 => "enddate" %></th>
     <th>Keydates</th>
     
     
-    <th>Io</th>
-    <th>Assets</th>
+    <th><%= link_to "IO", :sort2 => "io" %></th>
+    <th><%= link_to "Assets", :sort2 => "assets" %></th>
     <th>DB</th>
     <th></th>
     <th></th>
@@ -106,8 +106,8 @@
     
     <td><%= campaign.agency %></td>
     
-    <td><%= campaign.startdate %></td>
-    <td><%= campaign.enddate %></td>
+    <td><%= campaign.startdate.strftime("%m/%d/%Y") %></td>
+    <td><%= campaign.enddate.strftime("%m/%d/%Y") %></td>
     <td><%= campaign.keydates %></td>
     
     <td>

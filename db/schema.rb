@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140203214856) do
+ActiveRecord::Schema.define(:version => 20140210192050) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(:version => 20140203214856) do
     t.string   "agency"
     t.string   "teamsold"
     t.string   "revenue"
-    t.string   "startdate"
-    t.string   "enddate"
+    t.date     "startdate",       :limit => 255
+    t.date     "enddate",         :limit => 255
     t.string   "thirdparty"
     t.text     "thirdpartylogin"
     t.text     "theoremtracking"
@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(:version => 20140203214856) do
     t.boolean  "io"
     t.boolean  "assets"
     t.text     "notes"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.text     "status"
     t.text     "trafficker"
     t.string   "manager"
@@ -62,22 +62,21 @@ ActiveRecord::Schema.define(:version => 20140203214856) do
   create_table "tickets", :force => true do |t|
     t.integer  "user_id"
     t.text     "description", :limit => 255
-    t.string   "issue"
+    t.text     "issue",       :limit => 255
     t.integer  "priority"
     t.string   "category"
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
     t.string   "status"
     t.integer  "owner",       :limit => 255
-    t.string   "watchemails"
   end
 
   create_table "updates", :force => true do |t|
-    t.string   "body"
+    t.text     "body",       :limit => 255
     t.string   "category"
     t.integer  "ticket_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.integer  "user_id"
     t.boolean  "is_closer"
   end

@@ -9,16 +9,16 @@ class CampaignsController < ApplicationController
     @campuparray = []
     @campoverarray =[]
     @campaigns.each do |i|
-      if Date.strptime(i.startdate, "%m/%d/%Y").to_date <= Time.now.to_date && Date.strptime(i.enddate, "%m/%d/%Y").to_date > Time.now.to_date
+      if i.startdate <= Time.now.to_date 
         @camplivearray << i.id
-      elsif Date.strptime(i.startdate, "%m/%d/%Y").to_date > Time.now.to_date 
+      elsif i.startdate > Time.now.to_date 
         @campuparray << i.id
       else
         @campoverarray << i.id
       end
     end
-    @camplive = Campaign.where(:id => @camplivearray)
-    @campup = Campaign.where(:id => @campuparray)
+    @camplive = Campaign.where(:id => @camplivearray).order(params[:sort2])
+    @campup = Campaign.where(:id => @campuparray).order(params[:sort])
     @campover = Campaign.where(:id => @campoverarray)
     @temparray = [@camplive, @campup]
     
@@ -71,7 +71,7 @@ class CampaignsController < ApplicationController
   # POST /campaigns.json
   def create
     @campaign = Campaign.new(params[:campaign])
-
+    
     respond_to do |format|
       if @campaign.save
         format.html { redirect_to @campaign, notice: 'Campaign was successfully created.' }
@@ -123,9 +123,9 @@ class CampaignsController < ApplicationController
     @camplivearray = []
     @campuparray = []
     @campaigns.each do |i|
-      if i.startdate.to_time.strftime("%m/%d/%Y").to_date <= Time.now.to_date && i.enddate.to_time.strftime("%m/%d/%Y").to_date > Time.now.to_date
+      if i.startdate <= Time.now.to_date && i.enddate > Time.now.to_date
         @camplivearray << i.id
-      elsif i.startdate.to_time.strftime("%m/%d/%Y").to_date > Time.now.to_date
+      elsif i.startdate > Time.now.to_date
         @campuparray << i.id
       end
     end
@@ -140,9 +140,9 @@ class CampaignsController < ApplicationController
     @campuparray = []
     @campoverarray = []
     @campaigns.each do |i|
-      if i.startdate.to_time.strftime("%m/%d/%Y").to_date <= Time.now.to_date && i.enddate.to_time.strftime("%m/%d/%Y").to_date > Time.now.to_date
+      if i.startdate <= Time.now.to_date && i.enddate > Time.now.to_date
         @camplivearray << i.id
-      elsif i.startdate.to_time.strftime("%m/%d/%Y").to_date > Time.now.to_date 
+      elsif i.startdate > Time.now.to_date 
         @campuparray << i.id
       else
         @campoverarray << i.id
