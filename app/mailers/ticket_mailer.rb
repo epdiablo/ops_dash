@@ -4,7 +4,8 @@ class TicketMailer < ActionMailer::Base
 
 	def ticket_creation(ticket)
 		@ticket = ticket
-		mail :to => "rrogers@songza.com", :subject => "New Ticket: #{ticket.id}"
+		
+		mail :to => User.find_by_id(ticket.owner).email, :subject => "New Ticket: #{ticket.id}"
 	end
 
 	def ticket_thanks(ticket)
